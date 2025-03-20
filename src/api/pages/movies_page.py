@@ -5,6 +5,8 @@ class MoviesPage(BaseAPI):
     def get_popular_movies(self, page=1):
         return self._make_request("/movie/popular", params={"page": page})
 
+    # TEST
+
     def get_movie_details(self, movie_id):
         return self._make_request(f"/movie/{movie_id}")
 
