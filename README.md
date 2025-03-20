@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Automation Testing Pet Project
 
 This is a personal automation testing project designed to demonstrate proficiency in automated testing for both **web applications** and **APIs**. The project includes end-to-end (E2E) tests for a web application and API tests, integrated with **TestRail** for test case management and **Allure Report** for detailed reporting. It serves as a continuously evolving sandbox to explore and implement best practices in test automation.
@@ -42,12 +41,6 @@ The project consists of two main testing modules:
 
 - **Allure Report Integration**:
   - Detailed test reports with steps, screenshots (for web), request/response details (for API), and pass/fail statuses.
-  - Generated after each test run for easy analysis.
+  - Generated after each test run for easy analysis. End.
 
 ---
-
-## Project Structure
-=======
-# MyAutoTests
-This is a personal automation testing project 
->>>>>>> 9d5d6a324450f8dd436404503b14c1c541f31ef8
