@@ -8,7 +8,7 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-        # TEST
+        # TEST - 2
 
     def is_text_present(self, text):
         try:
