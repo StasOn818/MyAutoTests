@@ -8,6 +8,8 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+        # TEST
+
     def is_text_present(self, text):
         try:
             body_text = self.driver.find_element(By.TAG_NAME, "body").text
