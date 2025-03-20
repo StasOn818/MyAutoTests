@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+__pycache__/
+*.py[cod]
+venv/
+logs/
+allure-results/
+allure-report/
+config/settings.py
+=======
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -172,3 +181,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+>>>>>>> 9d5d6a324450f8dd436404503b14c1c541f31ef8
