@@ -41,6 +41,6 @@ The project consists of two main testing modules:
 
 - **Allure Report Integration**:
   - Detailed test reports with steps, screenshots (for web), request/response details (for API), and pass/fail statuses.
-  - Generated after each test run for easy analysis.
+  - Generated after each test run for easy analysis. End.
 
 ---
