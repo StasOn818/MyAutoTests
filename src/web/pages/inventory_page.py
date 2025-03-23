@@ -1,4 +1,6 @@
 import random
+
+import allure
 from selenium.webdriver.common.by import By
 from src.web.pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
@@ -23,7 +25,8 @@ class InventoryPage(BasePage):
 
 
     def click_burger_menu_button(self):
-        self.driver.find_element(*self.burger_menu_button).click()
+        with allure.step('Click the Burger Menu button'):
+            self.driver.find_element(*self.burger_menu_button).click()
 
     def wait_for_logout_button(self, timeout=5):
         WebDriverWait(self.driver, timeout).until(
@@ -31,13 +34,16 @@ class InventoryPage(BasePage):
             "The 'Logout' button did not appear after opening the menu."
         )
     def click_logout_button(self):
-        self.driver.find_element(*self.logout_button).click()
+        with allure.step('Click the Logout button'):
+            self.driver.find_element(*self.logout_button).click()
 
     def get_product_count(self):
-        return len(self.driver.find_elements(*self.PRODUCT_LIST))
+        with allure.step('The inventory page with product carts  displayed'):
+            return len(self.driver.find_elements(*self.PRODUCT_LIST))
 
     def is_login_page_displayed(self):
-        return self.is_element_visible(*self.username_field)
+        with allure.step('Login page displayed'):
+            return self.is_element_visible(*self.username_field)
 
     def add_specific_products_to_cart(self, indexes):
         product_elements = self.driver.find_elements(*self.PRODUCT_NAMES)
@@ -49,14 +55,15 @@ class InventoryPage(BasePage):
                 add_buttons[index].click()
         return selected_products
 
-
     def add_random_products_to_cart(self, count=2):
         add_buttons = self.driver.find_elements(*self.ADD_TO_CART_BUTTONS)
         indexes = random.sample(range(len(add_buttons)), count)
-        self.add_specific_products_to_cart(indexes)
+        with allure.step('Add two random products to the cart'):
+            self.add_specific_products_to_cart(indexes)
 
     def go_to_cart(self):
-        self.driver.find_element(*self.CART_ICON).click()
+        with allure.step('Go to the cart'):
+            self.driver.find_element(*self.CART_ICON).click()
 
     def get_cart_badge_count(self):
         try:
@@ -72,16 +79,20 @@ class InventoryPage(BasePage):
         self.driver.switch_to.window(new_tab)
         WebDriverWait(self.driver, 10).until(EC.url_contains(expected_url))
         current_url = self.driver.current_url
+
         assert expected_url in current_url, f"Expected URL for {social_icon} '{expected_url}', but opened {current_url}"
-        print(current_url)
+
         self.driver.close()
         self.driver.switch_to.window(self.driver.window_handles[0])
 
     def open_twitter_and_return(self):
-        self.open_social_link_and_return(self.TWITTER_ICON, "x.com/saucelabs")
+        with allure.step('The user goes to the Sauce Labs Twitter page (x.com/saucelabs).'):
+            self.open_social_link_and_return(self.TWITTER_ICON, "x.com/saucelabs")
 
     def open_facebook_and_return(self):
-        self.open_social_link_and_return(self.FACEBOOK_ICON, "facebook.com/saucelabs")
+        with allure.step('The user goes to the Sauce Labs Facebook page (facebook.com/saucelabs).'):
+            self.open_social_link_and_return(self.FACEBOOK_ICON, "facebook.com/saucelabs")
 
     def open_linkedin_and_return(self):
-        self.open_social_link_and_return(self.LINKEDIN_ICON, "linkedin.com/company/sauce-labs/")
+        with allure.step('The user goes to the Sauce Labs LinkedIn page (linkedin.com/company/sauce-labs).'):
+            self.open_social_link_and_return(self.LINKEDIN_ICON, "linkedin.com/company/sauce-labs/")

@@ -1,7 +1,5 @@
 import allure
 from selenium.webdriver.common.by import By
-
-from src import logger
 from src.web.pages.base_page import BasePage
 
 class LoginPage(BasePage):
@@ -18,12 +16,13 @@ class LoginPage(BasePage):
             self.driver.find_element(*self.username_field).send_keys(username)
 
     def enter_password(self, password):
-        with allure.step('Enter the value in password field: ' + password):
-            self.driver.find_element(*self.password_field).send_keys(password)
+         with allure.step('Enter the value in password field: ' + password):
+             self.driver.find_element(*self.password_field).send_keys(password)
 
     def click_login(self):
         with allure.step('Click the login button'):
             self.driver.find_element(*self.login_button).click()
 
     def is_login_page_displayed(self):
-        return self.is_element_visible(self.login_button)
+        with allure.step('Login page displayed'):
+            return self.is_element_visible(self.login_button)
