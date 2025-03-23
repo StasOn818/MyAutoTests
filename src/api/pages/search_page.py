@@ -1,6 +1,6 @@
 from src.api.pages.base_api import BaseAPI
 from src.api.config.settings import DEFAULT_LANGUAGE
-# erest
+
 class SearchPage(BaseAPI):
     def search_movie(self, query, year=None, language=DEFAULT_LANGUAGE):
         params = {"query": query, "language": language}

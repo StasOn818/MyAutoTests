@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from src.web.pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,7 +14,8 @@ class CartPage(BasePage):
         return len(self.driver.find_elements(*self.CART_ITEMS))
 
     def remove_item_from_cart(self, index=0):
-        WebDriverWait(self.driver, 5).until(
+        with allure.step('Click the "Remove" button from the cart one by one'):
+            WebDriverWait(self.driver, 5).until(
             EC.presence_of_all_elements_located(self.REMOVE_BUTTON)
         )
         remove_buttons = self.driver.find_elements(*self.REMOVE_BUTTON)
@@ -26,7 +28,8 @@ class CartPage(BasePage):
             raise ValueError(f"Can't delete item {index}, only {len(remove_buttons)} items in cart.")
 
     def click_checkout(self):
-        self.driver.find_element(*self.CHECKOUT_BUTTON).click()
+        with allure.step('Click Checkout button'):
+            self.driver.find_element(*self.CHECKOUT_BUTTON).click()
 
     def get_cart_product_names(self):
         items = self.driver.find_elements(*self.ITEM_NAMES)

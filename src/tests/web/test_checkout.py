@@ -1,3 +1,4 @@
+import allure
 import pytest
 from src.web.config.config import base_url, password, username
 from src.web.pages.login_page import LoginPage
@@ -8,7 +9,9 @@ from src.web.pages.checkout_summary_page import CheckoutSummaryPage
 from src.web.pages.checkout_complete_page import CheckoutCompletePage
 from src.utils.testrail_integration import update_test_result
 
-@pytest.mark.testrail(id="8")
+@pytest.mark.testrail(id="10")
+@allure.story('Check if Checkout process work correctly')
+@allure.severity('critical')
 def test_checkout_process(driver):
     driver.get(base_url)
     login_page = LoginPage(driver)
@@ -24,13 +27,17 @@ def test_checkout_process(driver):
     checkout_page.fill_checkout_info(first_name="John", last_name="Snow", zip_code="01001")
     checkout_page.click_continue()
     summary_page = CheckoutSummaryPage(driver)
+    summary_page.get_summary_product_names()
     summary_page.click_finish()
     confirmation_page = CheckoutCompletePage(driver)
 
-    assert confirmation_page.is_order_complete(), "The order was not successfully placed!"
+    with allure.step('The order confirmation message is displayed'):
+        assert confirmation_page.is_order_complete(), "The order was not successfully placed!"
+
     confirmation_page.click_back_home()
 
-    assert driver.current_url == "https://www.saucedemo.com/inventory.html", \
+    with allure.step('The user is redirected back to the inventory page after clicking "Back Home"'):
+        assert driver.current_url == "https://www.saucedemo.com/inventory.html", \
         f"Expected product page: https://www.saucedemo.com/inventory.html, but returned: {driver.current_url}"
 
-    update_test_result(8, status=1)
+    update_test_result(10, status=1)

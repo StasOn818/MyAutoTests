@@ -1,4 +1,3 @@
-# pages/base_api.py
 import requests
 from src.api.config.settings import API_KEY, ACCESS_TOKEN, BASE_URL, DEFAULT_LANGUAGE, TIMEOUT
 from src.logger import setup_logger
@@ -8,10 +7,9 @@ class BaseAPI:
         self.api_key = api_key
         self.access_token = access_token
         self.base_url = base_url
-        self.logger = setup_logger("TMDb_API")  # Initialize logger
+        self.logger = setup_logger("TMDb_API")
 
     def _make_request(self, endpoint, method="GET", params=None, json_data=None):
-        """Generic method to send requests to the API."""
         default_params = {"api_key": self.api_key, "language": DEFAULT_LANGUAGE}
         if params:
             default_params.update(params)
