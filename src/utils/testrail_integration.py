@@ -1,6 +1,6 @@
 import requests
-TESTRAIL_URL = "https://silverhand818.testrail.io/"
-API_KEY = "NY/N7DUaaGbbfkmjQXoe-N1fkh81.m2GnQorwkkiH"
+TESTRAIL_URL = "my_test_rail_url/"
+API_KEY = "my_api_key"
 PROJECT_ID = "4"
 
 def update_test_result(test_case_id, status):
