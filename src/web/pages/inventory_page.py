@@ -1,5 +1,4 @@
 import random
-
 import allure
 from selenium.webdriver.common.by import By
 from src.web.pages.base_page import BasePage

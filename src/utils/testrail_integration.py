@@ -1,7 +1,7 @@
 import requests
 TESTRAIL_URL = "https://silverhand818.testrail.io/"
 API_KEY = "NY/N7DUaaGbbfkmjQXoe-N1fkh81.m2GnQorwkkiH"
-PROJECT_ID = "5"
+PROJECT_ID = "4"
 
 def update_test_result(test_case_id, status):
     url = f"{TESTRAIL_URL}/index.php?/api/v2/add_result_for_case/{PROJECT_ID}/{test_case_id}"
