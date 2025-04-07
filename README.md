@@ -2,24 +2,7 @@
 
 This is a personal automation testing project designed to demonstrate proficiency in automated testing for both **web applications** and **APIs**. The project includes end-to-end (E2E) tests for a web application and API tests, integrated with **TestRail** for test case management and **Allure Report** for detailed reporting. It serves as a continuously evolving sandbox to explore and implement best practices in test automation.
 
----
 
-## Project Overview
-
-The project consists of two main testing modules:
-1. **Web Testing**:
-   - **Target**: [SauceDemo](https://www.saucedemo.com/) - a demo e-commerce website.
-   - **Purpose**: End-to-end (E2E) testing of user workflows such as login, product selection, cart management, and checkout.
-   - **Tools**: Selenium WebDriver with Python for browser automation.
-
-2. **API Testing**:
-   - **Target**: [TMDb API](https://www.themoviedb.org/) - The Movie Database API.
-   - **Purpose**: Testing API endpoints for movies, TV shows, search functionality, and authenticated actions (e.g., rating movies).
-   - **Tools**: Python with `requests` library for API interactions.
-
----# Automation Testing Pet Project
-
-This is a personal automation testing project designed to demonstrate proficiency in automated testing for both **web applications** and **APIs**. The project includes end-to-end (E2E) tests for a web application and API tests, integrated with **TestRail** for test case management and **Allure Report** for detailed reporting. It serves as a continuously evolving sandbox to explore and implement best practices in test automation.
 
 ---
 
